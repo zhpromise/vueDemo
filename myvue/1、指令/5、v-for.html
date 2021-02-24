@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<body>
+
+<!--  v-for
+
+   -->
+<div id="app">
+    <li v-for="user in users">
+        {{user.name}} == > {{user.age}} ==> {{user.gender}}
+    </li>
+
+    ------------------------------
+
+    <!-- 索引
+        :key ==>指定唯一值  增加vue渲染效率
+    -->
+    <li v-for="(user, index) in users" :key="user.name">
+        {{index}} : {{user.name}} ==> {{user.age}}
+    </li>
+
+    ------------------------------
+
+    <!--
+        遍历对象 :
+        v-for ： value in object   遍历对象所有值
+        v-for :  (value, key) in object 遍历对象 key value
+        v-for :  (value,key , index) in object 按key:value方式遍历对象 并显示索引
+    -->
+
+    <li v-for="(user,index) in users">
+                <span v-for="value in user">
+                    {{value}},
+                </span>
+    </li>
+    <h1>--------------------------</h1>
+    <li v-for="(user,index) in users">
+        <span v-for="(value, key) in user">
+                {{key}}:{{value}},
+        </span>
+    </li>
+    <h1>--------------------------</h1>
+    <li v-for="(user,index) in users">
+        <span v-for="(value, key) in user">
+                {{key}}:{{value}},
+        </span>
+    </li>
+
+    <h1>-----------显示下标---------------</h1>
+    <li v-for="(user,index) in users">
+        <span v-for="(value, key,index) in user">
+                {{index}}={{key}}:{{value}},
+        </span>
+    </li>
+
+
+</div>
+
+</body>
+<script>
+    app = new Vue({
+        el: '#app',
+        data: {
+            users: [{name: '柳岩', gender: '女', age: 21},
+                {name: '张三', gender: '男', age: 18},
+                {name: '范冰冰', gender: '女', age: 24},
+                {name: '刘亦菲', gender: '女', age: 18},
+                {name: '古力娜扎', gender: '女', age: 25}],
+            nums: [1, 2, 3, 4, 4]
+        },
+    })
+
+</script>
+
+
+</html>

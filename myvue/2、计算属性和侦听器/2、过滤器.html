@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 过滤器常用来处理文本格式化的操作。
+         过滤器可以用在两个地方：双花括号插值和 v-bind 表达式 -->
+
+
+
+    <div id="app">
+        <ul v-for="user in userList" :key="user.id">
+                {{user.name}}=={{user.gender}} ==> {{user.gender == 0 ? "男" : "女"}}
+        </ul>
+
+        <ul>----------------------------------------------</ul>
+        <ul v-for="user in userList" :key="user.id" >
+            {{user.name}} ==> {{user.gender}}==>{{user.gender | genderFilter}}
+
+
+            {{user.gender | gFilter1}} ==> {{user.gender | gFilter2}}
+        </ul>
+
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+
+        /* 声明全局filter */
+        Vue.filter('gFilter1',function(value){
+            if(value === 0) {
+                return '女';
+            } else {
+                return '男';
+            }
+        });
+
+        Vue.filter('gFilter2',function(value){
+            if(value === 0) {
+                return '女';
+            } else {
+                return '男';
+            }
+        });
+
+
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                userList: [
+                    { id: 1, name: 'jacky', gender: 1 },
+                    { id: 2, name: 'peter', gender: 0 }
+                ]
+            },
+
+            /*过滤器 */
+            filters : {
+                genderFilter(value) {
+                    if(value === 0) {
+                        return '女';
+                    } else {
+                        return '男';
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

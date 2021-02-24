@@ -37,6 +37,11 @@
             </div>
         </div>
 
+        <!-- 按键修饰符 -->
+        <input type="text" v-model="num" @keyup="num++" v-on:keyup.up="num += 2" @keyup.down="num -= 2"></input>
+
+
+
     </div>
 
 

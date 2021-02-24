@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="num++" >点击了{{num}}次</button>
+
+        <!-- 引用全局组件-->
+        <counter></counter>
+
+        <!-- 引入局部组件 -->
+        <button-counter></button-counter>
+
+
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+
+
+    <script>
+
+        /* 声明全局组件 */
+        Vue.component('counter',{
+            template : '<button @click="num++" >点击了{{num}}次</button>',
+            data(){
+                return {
+                    num : 1,
+                }
+            }
+        });
+
+        /*2、声明局部组件*/
+        const buttonCounter = {
+            template: '<button @click="num++" >点击了{{num}}次</button>',
+            data(){
+                return {
+                    num : 1,
+                }
+            }
+        }
+
+        new Vue({
+            el : "#app",
+            data : {
+                num : 1,
+            },
+            components : {
+                'button-counter' : buttonCounter,
+            }
+        })
+
+
+        // 注册全局组件
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
