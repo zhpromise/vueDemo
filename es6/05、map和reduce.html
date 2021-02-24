@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // 1.map：接收一个函数，将某个数组中的元素挨个处理后返回
+    // 例如:将某个数组的所有元素都乘以2
+    let arr = [1, -2, 10];
+    // item：数组中的每个元素
+    arr = arr.map((item) => item * 2);
+    console.log(arr);
+
+
+    // reduce():为数组中的每个元素一次执行回调函数，不包括已经删除的元素和未赋值的元素
+    /**
+     * 1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+     * 2、currentValue （数组中当前被处理的元素）
+     * 3、index （当前元素在数组中的索引）
+     * 4、array （调用 reduce 的数组）
+     */
+    let arr2 = [2, 3, 1];
+    let result = arr2.reduce((a, b) => {
+        console.log("上一次处理的结果" + a);
+        console.log("正在处理的数据" + b);
+        return a + b;
+    });
+
+    console.log(result);
+
+
+</script>
+
+</body>
+</html>

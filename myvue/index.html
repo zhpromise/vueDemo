@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<body>
+
+<div id="app">
+    <input type="text" v-model="num">
+    <button v-on:click="num++">点赞</button>
+    <button v-on:click="cancel">取消</button>
+    <h1>{{name}},非常用功,有{{num}}人道号</h1>
+</div>
+
+</body>
+
+<script>
+    let app = new Vue({
+        // 绑定元素
+        el: '#app',
+
+        // 封装数据
+        data: {
+            name: '张三',
+            num: 1
+        },
+        // v-model 模型双向绑定
+
+        // 绑定方法
+        methods: {
+            cancel() {
+                this.num--;
+            }
+        }
+    });
+</script>
+</html>

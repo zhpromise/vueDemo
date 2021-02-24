@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.设值默认参数
+        function sum(a, b =1) {
+            return a + b;
+        }
+        console.log(sum(20));
+
+
+        // 2.不定参数
+
+        function para(... params) {
+            console.log(params.length);
+        }
+        para(1 ,2, 3);
+
+
+
+        // 3.箭头函数
+        let print = obj=>console.log(obj);
+        print('箭头函数');
+
+        //格式：（参数1,参数2）=>{方法体}
+        let sum1 = (a,b) => a + b;
+        let sum2 = (a, b) => {
+            return a + b;
+        }
+        console.log(sum1(2, 2));
+        console.log(sum2(3, 3));
+
+
+
+
+        // 4.箭头 + 结构
+
+        const person = {
+            name: "jack",
+            age: 21,
+            language: ['java', 'js', 'css']
+        }
+
+        let hello = ({name}) => console.log("hello," + name);
+        hello(person);
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

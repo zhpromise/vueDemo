@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // // 1.数组结构表达式
+    // let arr = [1,2,3];
+    //
+    // // old
+    // // let a = arr[0];
+    // // let b = arr[1];
+    // // let c = arr[2];
+    //
+    // // now 数组结构表达式
+    // let[a, b, c] = arr;
+    // console.log(a,b,c);
+
+
+    // 2.对象结构表达式
+    const person = {
+        name: "jack",
+        age: 21,
+        language: ['java', 'js', 'css']
+    }
+
+    // // old
+    // const name = person.name;
+    // const age = person.age;
+    // const language = person.language;
+
+    /*
+     * now 对象结构表达式
+     * name : aa,对name重新声明变量名称
+     */
+    const {name: aa, age, language} = person;
+    console.log(aa, age, language);
+
+
+    // 3.字符串扩展
+    let str = "hello vue"
+    console.log(str.startsWith('hello'));
+    console.log(str.endsWith('vue'));
+    console.log(str.includes('he'));
+    console.log(str.includes('vu'));
+
+    // 4.字符串模板
+    let div_str = `<div>
+                        hello vue
+                    </div>`;
+    console.log(div_str);
+
+    // 4.1 字符串插入变量和表达式，变量名写在${}中，${}中可以写入JavaScript表达式
+    function fun(){
+        return '这是一个函数'
+    }
+    let info = `我是${aa},今年${age},这是：${fun()}`;
+    console.log(info);
+
+</script>
+
+
+</body>
+</html>

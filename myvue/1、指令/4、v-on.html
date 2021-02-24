@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<script src="../../node_modules/vue/dist/vue.js"></script>
+
+<body>
+
+
+    <!-- v-model 双向绑定 适用于 表单项，自定义组件 -->
+    <div id="app">
+        <button v-on:click="num++">点赞</button>
+        <button @click="cancel">取消</button>
+        <h1>有{{num}}个赞</h1>
+
+        <!-- 事件修饰符 -->
+        <!--
+            .stop  阻止事件向上冒泡
+            .prevent 阻止事件默认行为
+            .capture
+            .self
+            .once
+            .passive
+        -->
+
+        <!-- 事件只允许点击一次 -->
+        <div style="border: 1px solid red;padding: 20px;" @click.once="helloBig()" >
+            大div
+            <!-- 阻止事件向上冒泡 -->
+            <div style="border: 1px solid blue;padding: 20px;" v-on:click.stop="helloSmall()">
+                小div <br />
+                <!--阻止事件默认行为 阻止向上冒泡-->
+                <a href="http://www.baidu.com" @click.prevent.stop="helloA()" >去百度</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        let app = new Vue({
+            el : '#app',
+            data : {
+                num : 1,
+            },
+            methods : {
+                cancel() {
+                    this.num --;
+                },
+                helloSmall(){
+                    alert("helloSmall...");
+                },
+                helloBig(){
+                    alert("helloBig...");
+                },
+                helloA(){
+                    alert("helloA...");
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>
