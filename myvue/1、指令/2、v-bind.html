@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+    <!-- dsdasdddd -->
 
     <!-- v-bind: 给html标签的属性绑定，单向绑定 -->
-    <div id="app"> 
-        <a v-bind:href="links" >gogogo</a>
+    <div id="app">
+        <a v-bind:href="links">gogogo</a>
         <!-- class class绑定 ： 定义对象，更具isactivity样式的值为true动态显示样式-->
         <!--style : 样式绑定，定义对象更具对象值绑定数据，带有特殊字符样式名称可驼峰写法或者添加''-->
-        <h2 v-bind:class = '{ activity: isactivity,message:hasmessage}'
-        :style="{'font-size': size, color: color1}">你好</h2>
+        <h2 v-bind:class='{ activity: isactivity,message:hasmessage}' :style="{'font-size': size, color: color1}">你好</h2>
 
 
     </div>
@@ -23,17 +25,17 @@
 
     <script>
         let app = new Vue({
-            el : '#app',
-            data : {
-                links : "http://www.baidu.com",
-                isactivity : true,
-                hasmessage : true,
-                size : '30px',
-                color1 : 'blue'
+            el: '#app',
+            data: {
+                links: "http://www.baidu.com",
+                isactivity: true,
+                hasmessage: true,
+                size: '30px',
+                color1: 'blue'
             }
         })
-
     </script>
 
 </body>
+
 </html>
